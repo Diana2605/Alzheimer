@@ -22,7 +22,7 @@ const params = {
     });
 
 const Interaction = {
-  callWatsonAssistant : () => {
+  callWatsonAssistant : (input) => {
     console.log('[callWatsonAssistant]');
     //this will be the call to watson assistant - see message function described below
     //https://cloud.ibm.com/apidocs/assistant/assistant-v1?code=node#get-response-to-user-input
