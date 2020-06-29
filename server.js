@@ -10,6 +10,7 @@ app.get('/', (req, res) => res.send('Welcome to my chatbot!'))
 app.post('/interaction', (req, res) => {
   //here call interaction.callWatsonAssistant function
   //Interaction.callWatsonAssistant(req.body)
+  Interaction.callWatsonAssistant.message(params, [callback()]);
 })
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
