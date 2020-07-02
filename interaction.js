@@ -20,3 +20,24 @@ const params = {
     .catch(err => {
       console.log(err)
     });
+
+const Interaction = {
+  callWatsonAssistant : (input) => {
+    console.log('[callWatsonAssistant]');
+    //this will be the call to watson assistant - see message function described below
+    //https://cloud.ibm.com/apidocs/assistant/assistant-v1?code=node#get-response-to-user-input
+    assistant.message({
+      workspaceId: 'e85f6bac-b53f-43d4-a5d7-fb811985a52c',
+      input: {'text': 'I need help'}
+      })
+      .then(res => {
+        console.log(JSON.stringify(res.result, null, 2));
+      })
+      .catch(err => {
+        console.log(err)
+      });
+  }
+}
+
+// export in order to be able to import in other files 
+module.exports = Interaction;
