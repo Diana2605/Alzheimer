@@ -40,8 +40,4 @@ const Interaction = {
 }
 
 // export in order to be able to import in other files 
-<<<<<<< HEAD
 module.exports = Interaction;
-=======
-module.exports = Interaction;
->>>>>>> refs/remotes/origin/master
