@@ -24,9 +24,11 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "prompt-sync": "^4.2.0",
     "rxjs": "~6.5.5",
     "stream-chat": "^1.13.0",
     "tslib": "^2.0.0",
+    "watson-developer-cloud": "^4.0.1",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {

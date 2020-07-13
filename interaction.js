@@ -41,3 +41,5 @@ const Interaction = {
 
 // export in order to be able to import in other files 
 module.exports = Interaction;
+
+
