@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConversationService } from '../../services/conversation.service';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-conversation',
@@ -17,11 +18,20 @@ export class ConversationComponent implements OnInit {
   }
 
   public sendMessage(input){
+    this.inputMessage = '';
+    this.messages.push({
+      type: 'user',
+      message: input
+    });
+    let context = null;
+    if(input){
+      context = localStorage.getItem('context');
+    }
     this.convService.sendMessage({
       userQuery: input,
-      context: localStorage.getItem('context') || null
+      context: JSON.parse(context)
     }).subscribe((data: any) => {
-      localStorage.setItem('context', data.context);
+      localStorage.setItem('context', JSON.stringify(data.context));
       this.messages.push({
         type: 'bot',
         message: data.output.text[0]
