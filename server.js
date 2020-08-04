@@ -1,16 +1,19 @@
 const express = require('express')
 const app = express()
+const http = require('http');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const server = http.createServer(app);
 const port = 3000
-//import interaction functionality
-const Interaction = require('./interaction');
+const { Router } = require('./server/router');
 
-app.get('/', (req, res) => res.send('Welcome to my chatbot!'))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
-//interaction route
-app.post('/interaction', (req, res) => {
-  //here call interaction.callWatsonAssistant function
-  //Interaction.callWatsonAssistant(req.body)
-   Interaction.callWatsonAssistant(params, [callback()]);
-})
+app.use(cors());
+app.use('/api', Router);
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+server.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+
